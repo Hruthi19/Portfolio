@@ -12,6 +12,8 @@ import {
   Briefcase,
   Code,
   BookOpen,
+  Contact,
+  GitBranch,
   Mail,
   Phone,
 } from "lucide-react";
@@ -31,8 +33,6 @@ const getNavIcon = (href: string) => {
       return <Briefcase className="mr-2 h-4 w-4" />;
     case "/projects":
       return <Code className="mr-2 h-4 w-4" />;
-    case "/blog":
-      return <BookOpen className="mr-2 h-4 w-4" />;
     case "/contact":
       return <Mail className="mr-2 h-4 w-4" />;
     default:
@@ -44,9 +44,9 @@ const getNavIcon = (href: string) => {
 const getSocialIcon = (iconName: string) => {
   switch (iconName) {
     case "github":
-      return <Mail className="mr-2 h-4 w-4" />;
+      return <GitBranch className="mr-2 h-4 w-4" />;
     case "linkedin":
-      return <Phone className="mr-2 h-4 w-4" />;
+      return <Contact className="mr-2 h-4 w-4" />;
     case "mail":
       return <Mail className="mr-2 h-4 w-4" />;
     case "phone":

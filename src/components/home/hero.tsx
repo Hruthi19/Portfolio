@@ -14,12 +14,20 @@ import { StarHeader } from "../shared/star-header";
 const displayedSkills = [
   "Software Engineer",
   "Full Stack Developer",
-  "Blockchain Builder",
+  "Backend Engineer",
   "Systems Thinker",
+  "AI Enthusiast",
 ];
+
+const TYPE_SPEED_MS = 85;
+const DELETE_SPEED_MS = 45;
+const PAUSE_MS = 1200;
 
 export function Hero() {
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
+  const [typedSkill, setTypedSkill] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const currentSkill = displayedSkills[currentSkillIndex % displayedSkills.length] ?? "";
 
   // Parallax effect setup
   const { scrollY } = useScroll();
@@ -27,12 +35,39 @@ export function Hero() {
   const y2 = useTransform(scrollY, [0, 800], [0, 60]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % displayedSkills.length);
-    }, 3000);
+    if (!currentSkill) {
+      return;
+    }
 
-    return () => clearInterval(interval);
-  }, []);
+    const isFullyTyped = typedSkill === currentSkill;
+    const isFullyDeleted = typedSkill.length === 0;
+    const delay = isFullyTyped && !isDeleting
+      ? PAUSE_MS
+      : isDeleting
+        ? DELETE_SPEED_MS
+        : TYPE_SPEED_MS;
+
+    const timeout = window.setTimeout(() => {
+      if (!isDeleting && isFullyTyped) {
+        setIsDeleting(true);
+        return;
+      }
+
+      if (isDeleting && isFullyDeleted) {
+        setIsDeleting(false);
+        setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % displayedSkills.length);
+        return;
+      }
+
+      setTypedSkill((currentText) =>
+        isDeleting
+          ? currentText.slice(0, -1)
+          : currentSkill.slice(0, currentText.length + 1)
+      );
+    }, delay);
+
+    return () => window.clearTimeout(timeout);
+  }, [currentSkill, isDeleting, typedSkill]);
 
   return (
     <StarHeader>
@@ -54,21 +89,13 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="h-12"
+                  className="h-14 sm:h-16"
                 >
                   <div className="relative flex h-full items-center overflow-hidden">
-                    {displayedSkills.map((skill, index) => (
-                      <div
-                        key={skill}
-                        className={`absolute transform transition-all duration-500 ${
-                          index === currentSkillIndex
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        <h2 className="text-2xl font-semibold text-primary sm:text-3xl">{skill}</h2>
-                      </div>
-                    ))}
+                    <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
+                      {typedSkill}
+                      <span className="ml-1 inline-block h-7 w-[2px] translate-y-1 animate-pulse bg-primary sm:h-8" />
+                    </h2>
                   </div>
                 </motion.div>
                 <motion.p

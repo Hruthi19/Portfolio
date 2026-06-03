@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Contact, GitBranch, Mail, Phone } from "lucide-react";
 
 export function getIconComponent(
   iconName: string,
@@ -6,10 +6,10 @@ export function getIconComponent(
 ) {
   switch (iconName) {
     case "github":
-      return <Mail className={className} />;
+      return <GitBranch className={className} />;
 
     case "linkedin":
-      return <Phone className={className} />;
+      return <Contact className={className} />;
 
     case "mail":
       return <Mail className={className} />;

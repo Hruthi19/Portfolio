@@ -46,7 +46,7 @@ export function ExperienceTimeline() {
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Experience
             </h1>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="mx-auto max-w-[760px] text-lg text-muted-foreground md:text-2xl/relaxed">
               My professional journey in development and research
             </p>
           </motion.div>
@@ -73,7 +73,7 @@ export function ExperienceTimeline() {
           </Tabs>
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl">
+        <div className="mx-auto mt-12 w-full max-w-7xl">
           <div className="relative mx-auto">
             {/* Timeline Line */}
             <div className="absolute left-1/2 h-full w-[2px] -translate-x-1/2 bg-border" />
@@ -114,36 +114,36 @@ export function ExperienceTimeline() {
                 </div>
 
                 {/* Content Card */}
-                <div className={`mx-5 md:w-1/2 ${index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
+                <div className={`mx-5 md:w-[48%] ${index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
                   <Card className="overflow-hidden border border-border transition-colors hover:border-primary/50">
-                    <CardHeader className="bg-muted/50 p-4">
+                    <CardHeader className="bg-muted/50 p-6">
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <CardTitle>
-                            <h3 className="text-xl font-bold">{experience.title}</h3>
-                            <p className="mt-1 text-sm text-muted-foreground">
+                            <h3 className="text-2xl font-bold">{experience.title}</h3>
+                            <p className="mt-2 text-base text-muted-foreground">
                               {experience.company}
                             </p>
                           </CardTitle>
                         </div>
-                        <Badge variant="outline" className="shrink-0">
+                        <Badge variant="outline" className="shrink-0 text-sm">
                           {experience.startDate} - {experience.endDate}
                         </Badge>
                       </div>
-                      <div className="mt-2 flex items-center text-sm text-muted-foreground">
+                      <div className="mt-3 flex items-center text-base text-muted-foreground">
                         <MapPin className="mr-1 h-4 w-4" />
                         {experience.location}
                       </div>
                     </CardHeader>
-                    <CardContent className="p-4">
-                      <p className="mb-4 text-sm">{experience.description}</p>
+                    <CardContent className="p-6">
+                      <p className="mb-4 text-base leading-relaxed">{experience.description}</p>
                       <Separator className="my-4" />
-                      <h4 className="mb-2 text-sm font-medium">Key Achievements:</h4>
+                      <h4 className="mb-3 text-base font-medium">Key Achievements:</h4>
                       <ul className="space-y-2">
                         {experience.achievements.map((achievement, i) => (
                           <li key={i} className="flex items-start">
                             <ArrowRight className="mt-0.5 mr-2 h-4 w-4 shrink-0 text-primary" />
-                            <span className="text-sm">{achievement}</span>
+                            <span className="text-base leading-relaxed">{achievement}</span>
                           </li>
                         ))}
                       </ul>

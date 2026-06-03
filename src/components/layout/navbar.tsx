@@ -133,7 +133,7 @@ function MobileMenu({
                       href={item.href}
                       onClick={onClose}
                       className={cn(
-                        "block rounded-xl px-4 py-3 text-[15px] font-medium transition-colors",
+                        "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
                         isActive
                           ? "bg-muted/80 text-primary"
                           : "text-muted-foreground hover:bg-muted/40 hover:text-primary"
@@ -152,7 +152,7 @@ function MobileMenu({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onClose}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-[15px] font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                   >
                     Resume
                   </a>
@@ -277,7 +277,7 @@ export function Navbar() {
                         <Link
                           href={item.href}
                           className={cn(
-                            "variable-font rounded-md px-4 py-2 text-sm font-medium transition-all hover:bg-muted/50 hover:text-primary",
+                            "variable-font rounded-md px-4 py-2 text-base font-medium transition-all hover:bg-muted/50 hover:text-primary",
                             pathname === item.href
                               ? "font-variation-settings: 'wght' 600 bg-muted/60 text-primary"
                               : "text-muted-foreground"

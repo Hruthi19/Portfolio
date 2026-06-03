@@ -48,14 +48,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
                 <a
                   href="/resume.pdf"
                   target="_blank"

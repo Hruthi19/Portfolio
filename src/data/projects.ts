@@ -137,7 +137,7 @@ export const projects: Project[] = [
       "Built an interactive conversational interface that simulates career coaching and professional development guidance",
       "Leveraged machine learning and language models to generate context-aware recommendations for career paths, skills, and learning resources",
     ],
-    image: "/images/projects/career-conversation/career-conversation.webp",
+    image: "/images/projects/career-conversation-chatbot/career-conversation.webp",
     github: "https://github.com/Hruthi19/Career-Conversation",
     featured: false,
   },

@@ -10,13 +10,11 @@ import { skills, type SkillCategory } from "../../../data/skills";
 import { StarHeader } from "../../../components/shared/star-header";
 
 const achievements = [
-  { highlight: "$1,500", label: "Nillion Track Prize — Hacker House Goa 2024" },
-  { highlight: "$600", label: "Move it with Aptos Hackathon" },
-  { highlight: "$500", label: "Optimum Hacknet @ MIT" },
-  { highlight: "$500", label: "Marbelism Track — HACKSRM 5.0 2024" },
-  { highlight: "1st", label: "Appthon 1.0 Winner" },
-  { highlight: "Co-Chair", label: "MIT Bitcoin Expo — Hackathon & Marketing" },
-  { highlight: "Convener", label: "University Technical Team — 40% engagement increase" },
+  { highlight: "$300", label: "Ideation Hackathon (Electronic Waste Category) - Issued by CPCB " },
+  { highlight: "$1000", label: "Runner Up Dr.Reddy's Digital Hackathon 2.0" },
+  { highlight: "A1s", label: "Proficiency Award for securing all A1s in Secondary Education" },
+  { highlight: "Honours", label: "Secured 8.34 GPA in Bachelors" }
+  
 ];
 
 export default function AboutPage() {
@@ -76,19 +74,19 @@ export default function AboutPage() {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-bold">{edu.degree}</h3>
-                        <p className="text-sm text-muted-foreground">{edu.institution}</p>
-                        <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                        <p className="text-base text-muted-foreground">{edu.institution}</p>
+                        <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-base text-muted-foreground">
                           <span className="flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
+                            <Calendar className="h-4 w-4" />
                             {edu.startDate} – {edu.endDate}
                           </span>
                           <span className="flex items-center gap-1">
-                            <MapPin className="h-3 w-3" />
+                            <MapPin className="h-4 w-4" />
                             {edu.location}
                           </span>
                         </div>
                         {edu.gpa && (
-                          <Badge variant="outline" className="mt-2">
+                          <Badge variant="outline" className="mt-2 text-base">
                             CGPA: {edu.gpa}
                           </Badge>
                         )}
@@ -110,12 +108,12 @@ export default function AboutPage() {
                 {Object.keys(skills).map((category) => (
                   <Card key={category}>
                     <CardContent className="p-5">
-                      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+                      <h3 className="mb-3 text-base font-semibold uppercase tracking-wider text-primary">
                         {category}
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {skills[category as SkillCategory].map((skill) => (
-                          <Badge key={skill.name} variant="secondary" className="text-xs">
+                          <Badge key={skill.name} variant="secondary" className="text-base">
                             {skill.name}
                           </Badge>
                         ))}
