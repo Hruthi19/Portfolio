@@ -40,6 +40,7 @@ const getNavIcon = (href: string) => {
   }
 };
 
+
 // Get icon for social links
 const getSocialIcon = (iconName: string) => {
   switch (iconName) {
